@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Web Development",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "Learn the basics of web development, including HTML, CSS, and JavaScript."
+  },
+  {
+    "id": 2,
+    "title": "Advanced ReactJS",
+    "image": "assets/courses.avif",
+    "price": "$29.99",
+    "description": "Master React concepts like hooks, context API, and advanced state management."
+  },
+  {
+    "id": 3,
+    "title": "JavaScript from Scratch",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "A beginner-friendly guide to learning modern JavaScript from the ground up."
+  },
+  {
+    "id": 4,
+    "title": "Mastering TypeScript",
+    "image": "assets/courses.avif",
+    "price": "$24.99",
+    "description": "Enhance your JavaScript projects with strong typing using TypeScript."
+  },
+  {
+    "id": 5,
+    "title": "HTML & CSS for Beginners",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "Build beautiful websites with structured HTML and modern CSS."
+  },
+  {
+    "id": 6,
+    "title": "Responsive Web Design",
+    "image": "assets/courses.avif",
+    "price": "$19.99",
+    "description": "Learn to create responsive, mobile-friendly websites that look great on any device."
+  },
+  {
+    "id": 7,
+    "title": "Fullstack Development with MERN",
+    "image": "assets/courses.avif",
+    "price": "$39.99",
+    "description": "Become a fullstack developer with MongoDB, Express, React, and Node.js."
+  },
+  {
+    "id": 8,
+    "title": "Python for Web",
+    "image": "assets/courses.avif",
+    "price": "$34.99",
+    "description": "Leverage Python to build powerful web applications using Django and Flask."
+  },
+  {
+    "id": 9,
+    "title": "Free Java Basics",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "Get started with Java programming and object-oriented concepts."
+  },
+  {
+    "id": 10,
+    "title": "Next.js in Action",
+    "image": "assets/courses.avif",
+    "price": "$27.99",
+    "description": "Build blazing-fast, SEO-friendly React applications using Next.js."
+  },
+  {
+    "id": 11,
+    "title": "Vue.js Fundamentals",
+    "image": "assets/courses.avif",
+    "price": "$21.99",
+    "description": "Learn how to develop dynamic web applications with Vue.js."
+  },
+  {
+    "id": 12,
+    "title": "Git & GitHub Essentials",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "Master version control and collaboration with Git and GitHub."
+  },
+  {
+    "id": 13,
+    "title": "Building Progressive Web Apps",
+    "image": "assets/courses.avif",
+    "price": "$19.99",
+    "description": "Create modern Progressive Web Apps with offline capabilities."
+  },
+  {
+    "id": 14,
+    "title": "Web Accessibility Guide",
+    "image": "assets/courses.avif",
+    "price": "Free",
+    "description": "Design websites that are accessible to all users, including those with disabilities."
+  },
+  {
+    "id": 15,
+    "title": "Tailwind CSS Masterclass",
+    "image": "assets/courses.avif",
+    "price": "$16.99",
+    "description": "Quickly build modern, responsive UIs using Tailwind CSS."
+  }
+]
