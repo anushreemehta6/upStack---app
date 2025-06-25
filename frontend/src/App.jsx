@@ -7,7 +7,8 @@ import Home from './component/Home';
 import Signup from './component/Signup';
 import Login from './component/Login';
 import Course from './component/Course';
-
+import Contact from './component/Contact';
+import About from './component/About';
 function App() {
 
 
@@ -19,6 +20,8 @@ function App() {
           <Route path="/signup" element={<Signup/>} />
           <Route path="/login" element={<Login/>} />
            <Route path="/course" element={<Course/>} />
+           <Route path="/contact" element={<Contact/>} />
+           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </>
