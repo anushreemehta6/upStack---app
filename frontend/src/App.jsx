@@ -9,7 +9,9 @@ import Login from './component/Login';
 import Course from './component/Course';
 import Contact from './component/Contact';
 import About from './component/About';
+import  { Toaster } from 'react-hot-toast';
 function App() {
+    
 
 
   return (
@@ -23,6 +25,7 @@ function App() {
            <Route path="/contact" element={<Contact/>} />
            <Route path="/about" element={<About />} />
         </Routes>
+        <Toaster/>
       </BrowserRouter>
     </>
   )
