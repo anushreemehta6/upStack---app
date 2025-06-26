@@ -96,4 +96,31 @@ export const  updatecourse = async (req, res)=>{
   res.status(500).json({message:"error "})
   console.log("error in course updation", error)
  }
+};
+
+export const deletecourse = async(req, res)=>{
+   const { courseId}= req.params
+   try {
+    const course = await Course.findOneAndDelete({
+      _id : courseId
+    });
+    if(!course){
+      res.status(404).json({message:"no such course exist"});
+    }
+    res.status(200).json({message:"course deleted successfully"})
+   } catch (error) {
+    console.log("error: ",error)
+   }
+};
+
+
+export const coursedetail = async(req,res)=>{
+try {
+    const { courseId}= req.params;
+  const course = await Course.findOne(courseId);
+  res.status(200).json({message:"course details displayed by ID " , course})
+} catch (error) {
+  console.log("error: " ,error);
+  res.status(500).json({message:"course details cant display" , error})
+}
 }
