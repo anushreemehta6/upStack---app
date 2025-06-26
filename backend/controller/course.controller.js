@@ -60,3 +60,40 @@ export const createcourse = async (req, res) => {
     res.status(500).json({ error: "Error creating course" });
   }
 };
+
+
+// update the courses 
+
+export const  updatecourse = async (req, res)=>{
+ const {courseId} = req.params; 
+ const { title , price , description} = req.body;
+ const image = req.files?.image;
+
+ try {
+  if (!image) {
+      return res.status(400).json({ errors: "No image file uploaded" });
+    }
+
+    const cloud_response = await cloudinary.uploader.upload(image.tempFilePath);
+    if (!cloud_response || cloud_response.error) {
+      return res.status(400).json({ errors: "Error uploading file to cloudinary" });
+    }
+  const course = await Course.updateOne({
+    _id: courseId,
+
+
+  } ,{
+    title,
+      description,
+      price,
+      image: {
+        public_id: cloud_response.public_id,
+        url: cloud_response.url,
+      }
+  } )
+  res.status(200).json({message:"updated successfully"})
+ } catch (error) {
+  res.status(500).json({message:"error "})
+  console.log("error in course updation", error)
+ }
+}
