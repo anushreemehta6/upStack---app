@@ -1,8 +1,10 @@
 import User from '../model/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
+import Course from '../model/cources.model.js';
 
 import config from '../config.js';
+import { Purchase } from '../model/purchase.model.js';
 
 export const signup = async (req, res) => {
     try {
@@ -55,7 +57,7 @@ export const login = async (req, res) => {
 
         const token = jwt.sign({
             id: user._id
-        }, config.JWT_USER_PASSWORD)
+        }, config.JWT_USER_PASSWORD , {expiresIn : "1d"})
         res.cookie("jwt",token)
 
         res.status(200).json({ message: "User logged in successfully!", user, token });
@@ -77,3 +79,29 @@ export const logout = async(req,res)=>{
         res.status(500).json({message: "internal error"})
     }
 }
+
+export const ownCourse = async (req, res) => {
+  const userId = req.userId;
+
+  try {
+    const courses = await Purchase.find({ userId });
+
+    if (!courses || courses.length === 0) {
+      return res.status(404).json({ message: "No courses found for this user" });
+    }
+   
+    let purchasedCourseId = [];
+
+    for (let i = 0; i < courses.length; i++) {
+      purchasedCourseId.push(courses[i].courseId);
+    }
+    const courseData = await Course.find({
+      _id: { $in: purchasedCourseId },
+    });
+    res.status(200).json({ message: "Courses found", data: courses , courseData });
+
+  } catch (error) {
+    console.error("error", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

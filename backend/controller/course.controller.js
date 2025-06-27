@@ -129,14 +129,16 @@ try {
 export const buyCourse = async (req, res) => {
   const { userId } = req;  
   const { courseId } = req.params;
-
+   console.log(courseId)
   try {
-    const course = await Course.findOne(courseId); 
+  const course = await Course.findById(courseId); // ✅ CORRECT
+
     if (!course) {
       return res.status(404).json({ message: "Course not found" }); 
     }
 
     const existingPurchase = await Purchase.findOne({ userId, courseId });
+
     if (existingPurchase) {
       return res.status(400).json({ message: "Course already purchased" }); 
     }
@@ -144,9 +146,10 @@ export const buyCourse = async (req, res) => {
     const newPurchase = new Purchase({ userId, courseId });
     await newPurchase.save();
 
-    res.status(202).json({ message: "Course purchased successfully" });
+    res.status(202).json({ message: "Course purchased successfully" , newPurchase});
   } catch (error) {
     console.log("error: ", error);
     res.status(500).json({ message: "Internal server error" }); 
   }
 };
+

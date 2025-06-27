@@ -8,5 +8,6 @@ router.post("/create-course",createcourse)
 router.put("/update/:courseId", updatecourse)
 router.delete("/delete/:courseId", deletecourse)
 router.get("/course/:coursId",coursedetail)
-router.post('/buy/:coursId',userMiddleware,buyCourse)
+router.post('/buy/:courseId',userMiddleware,buyCourse)
+
 export default router

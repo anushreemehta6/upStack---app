@@ -1,15 +1,18 @@
-import { MongoOIDCError } from "mongodb";
-import mongoose, { Mongoose, Types } from "mongoose";
+import mongoose from "mongoose";
+
+
 
 const purchaseSchema = mongoose.Schema({
-userId : {
-    type: mongoose.Types.ObjectId,
-    ref:"User"
-},
-courseId :{
-    type: mongoose.Types.ObjectId,
-    ref:"Course"
-}
-})
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  courseId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Course",
+    required: true,
+  },
+});
 
- export const Purchase = mongoose.model("Purchase",purchaseSchema)
+export const Purchase = mongoose.model("Purchase", purchaseSchema);
