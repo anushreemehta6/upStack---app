@@ -1,5 +1,6 @@
 import Course from "../model/cources.model.js";
 import { v2 as cloudinary } from 'cloudinary';
+import { Purchase } from "../model/purchase.model.js";
 
 
 export const getcource = async(req,res)=>{
@@ -124,3 +125,28 @@ try {
   res.status(500).json({message:"course details cant display" , error})
 }
 }
+
+export const buyCourse = async (req, res) => {
+  const { userId } = req;  
+  const { courseId } = req.params;
+
+  try {
+    const course = await Course.findOne(courseId); 
+    if (!course) {
+      return res.status(404).json({ message: "Course not found" }); 
+    }
+
+    const existingPurchase = await Purchase.findOne({ userId, courseId });
+    if (existingPurchase) {
+      return res.status(400).json({ message: "Course already purchased" }); 
+    }
+
+    const newPurchase = new Purchase({ userId, courseId });
+    await newPurchase.save();
+
+    res.status(202).json({ message: "Course purchased successfully" });
+  } catch (error) {
+    console.log("error: ", error);
+    res.status(500).json({ message: "Internal server error" }); 
+  }
+};
