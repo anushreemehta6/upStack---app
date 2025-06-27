@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios'
 import { useEffect,useState } from 'react'
 function Contact() {
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
