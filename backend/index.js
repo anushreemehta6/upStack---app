@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import config from './config.js';
 import cors from 'cors'
 import courseRouter from '../backend/route/course.route.js'
 import fileUpload from 'express-fileupload'
