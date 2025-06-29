@@ -8,6 +8,7 @@ import fileUpload from 'express-fileupload'
 import { v2 as cloudinary } from 'cloudinary';
 import formRouter from '../backend/route/form.route.js'
 import userRouter from '../backend/route/user.route.js'
+import adminRouter from '../backend/route/admin.route.js'
 const app = express()
 dotenv.config()
 const port = process.env.PORT ||3000
@@ -41,7 +42,7 @@ app.use(fileUpload({
 app.use("/course",courseRouter)
 app.use("/submit",formRouter)
 app.use("/user",userRouter)
-
+app.use("/admin",adminRouter)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

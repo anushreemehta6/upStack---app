@@ -1,3 +1,4 @@
+import { MongoOIDCError } from "mongodb";
 import mongoose from "mongoose";
 
 const courseschema = mongoose.Schema(
@@ -24,6 +25,10 @@ const courseschema = mongoose.Schema(
          description :{
             type: String,
             required: true
+        },
+        creatorId : {
+          type: mongoose.Types.ObjectId,
+          ref:'User'
         }
 
     }

@@ -14,7 +14,7 @@ export const getcource = async(req,res)=>{
 }
 // for admins to create cources 
 export const createcourse = async (req, res) => {
-  
+  const adminId = req.adminId;
   const { title, description, price } = req.body;
   console.log(title, description, price);
 
@@ -49,7 +49,7 @@ export const createcourse = async (req, res) => {
       image: {
         public_id: cloud_response.public_id,
         url: cloud_response.url,
-      }
+      },creatorId:adminId
     };
     const course = await Course.create(courseData);
     res.json({
@@ -66,6 +66,7 @@ export const createcourse = async (req, res) => {
 // update the courses 
 
 export const  updatecourse = async (req, res)=>{
+  const adminId = req.adminId;
  const {courseId} = req.params; 
  const { title , price , description} = req.body;
  const image = req.files?.image;
@@ -81,6 +82,7 @@ export const  updatecourse = async (req, res)=>{
     }
   const course = await Course.updateOne({
     _id: courseId,
+    creatorId:adminId
 
 
   } ,{
@@ -100,10 +102,12 @@ export const  updatecourse = async (req, res)=>{
 };
 
 export const deletecourse = async(req, res)=>{
+    const adminId = req.adminId;
    const { courseId}= req.params
    try {
     const course = await Course.findOneAndDelete({
-      _id : courseId
+      _id : courseId,
+      creatorId:adminId
     });
     if(!course){
       res.status(404).json({message:"no such course exist"});
