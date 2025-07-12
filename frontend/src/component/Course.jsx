@@ -41,7 +41,7 @@ function Course() {
             </a>
             <div className="px-5 pb-5">
                 <a href="#">
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
+                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.title}</h5>
                 </a>
                 <p className="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">{item.description}</p>
                 <div className="flex items-center justify-between">
