@@ -9,6 +9,7 @@ import Login from './component/Login';
 import Course from './component/Course';
 import Contact from './component/Contact';
 import About from './component/About';
+import Admin from './component/Admin';
 import  { Toaster } from 'react-hot-toast';
 function App() {
     
@@ -24,6 +25,7 @@ function App() {
            <Route path="/course" element={<Course/>} />
            <Route path="/contact" element={<Contact/>} />
            <Route path="/about" element={<About />} />
+           <Route path="/admin" element={<Admin />} />
         </Routes>
         <Toaster/>
       </BrowserRouter>
